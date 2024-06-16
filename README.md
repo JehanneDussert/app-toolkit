@@ -34,26 +34,22 @@ docker run -p 3000:3000 frontend
 
 ### General
 
-#### 🔋 Stack: Python, FastAPI
-#### 💅 Code formatter: ?
+#### 🔋 Stack: Python, FastAPI, SQLite
+<!-- #### 💅 Code formatter: ? -->
 #### 📚 Libraries
-- [x]
+- [x] [BeautifulSoup](https://pypi.org/project/beautifulsoup4/)
+- [x] [Requests](https://pypi.org/project/requests/)
+- [x] [Pydantic](https://docs.pydantic.dev/latest/)
+- [x] [SQLAlchemy](https://www.sqlalchemy.org/)
 
 ### Usage
 
-Dev mode:
 ```
-npm run dev
-npx tailwindcss -i ./src/style/input.css -o ./src/style/output.css --watch
-```
-
-Build mode:
-```
-npm run build
+uvicorn main:app --reload
 ```
 
 Dockerize:
 ```
-docker build -t frontend:latest .
-docker run -p 3000:3000 frontend
+docker build -t backend:latest .
+docker run -p 8000:8000 backend
 ```
