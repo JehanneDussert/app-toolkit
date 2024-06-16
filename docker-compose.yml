@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./back
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+
+  database:
+    image: "bitnami/sqlite:latest"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - sqlite_data:/bitnami/sqlite/data
+
+  frontend:
+    build:
+      context: ./front
+    ports:
+      - "3000:3000"
+
+volumes:
+  sqlite_data:  # Définition du volume pour SQLite
