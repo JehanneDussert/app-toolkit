@@ -36,7 +36,11 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 						size="small"
 						onClick={() => setOpen(!open)}
 					>
-						{open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+						{open ? (
+							<KeyboardArrowUpIcon />
+						) : (
+							<KeyboardArrowDownIcon />
+						)}
 					</IconButton>
 				</TableCell>
 				<TableCell component="th" scope="row">
@@ -44,7 +48,10 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 				</TableCell>
 			</TableRow>
 			<TableRow>
-				<TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+				<TableCell
+					style={{ paddingBottom: 0, paddingTop: 0 }}
+					colSpan={6}
+				>
 					<Collapse in={open} timeout="auto" unmountOnExit>
 						<Box sx={{ margin: 1 }}>
 							<Table size="small" aria-label="purchases">
@@ -56,7 +63,9 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 								<TableBody>
 									{row.history.map((historyRow, index) => (
 										<TableRow key={index}>
-											<TableCell>{historyRow.date}</TableCell>
+											<TableCell>
+												{historyRow.date}
+											</TableCell>
 										</TableRow>
 									))}
 								</TableBody>
@@ -73,27 +82,28 @@ interface CollapsibleTableProps {
 	currentPageItems: string[];
 }
 
-export const CollapsibleTable: React.FC<CollapsibleTableProps> = ({ currentPageItems }) => {
+export const CollapsibleTable: React.FC<CollapsibleTableProps> = ({
+	currentPageItems,
+}) => {
 	const rowsData = currentPageItems.map((item) => createData(item));
 
 	return (
-    
-        <div className='py-8'>
-		<TableContainer component={Paper}>
-			<Table aria-label="collapsible table">
-				<TableHead>
-					<TableRow>
-						<TableCell />
-						<TableCell>Titre</TableCell>
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{rowsData.map((row, index) => (
-						<Row key={index} row={row} />
-					))}
-				</TableBody>
-			</Table>
-		</TableContainer>
-    </div>
+		<div className="py-8">
+			<TableContainer component={Paper}>
+				<Table aria-label="collapsible table">
+					<TableHead>
+						<TableRow>
+							<TableCell />
+							<TableCell>Titre</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{rowsData.map((row, index) => (
+							<Row key={index} row={row} />
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
+		</div>
 	);
 };

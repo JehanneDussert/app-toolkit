@@ -4,9 +4,9 @@ import InputBase from '@mui/material/InputBase';
 import { Dispatch } from 'react';
 
 interface SearchbarProps {
-    query: string;
-    setIsSubmitted: Dispatch<React.SetStateAction<boolean>>;
-    handleChange: React.ChangeEventHandler<HTMLInputElement>;
+	query: string;
+	setIsSubmitted: Dispatch<React.SetStateAction<boolean>>;
+	handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const Search = styled('div')(({ theme }) => ({
@@ -50,21 +50,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	},
 }));
 
-export const Searchbar: React.FC<SearchbarProps> = ({ query, setIsSubmitted, handleChange }) => {
+export const Searchbar: React.FC<SearchbarProps> = ({
+	query,
+	setIsSubmitted,
+	handleChange,
+}) => {
 	return (
-        <div className='py-8'>
-		<Search>
-			<SearchIconWrapper>
-				<SearchIcon />
-			</SearchIconWrapper>
-			<StyledInputBase
-                value={query}
-                onChange={handleChange}
-                onSubmit={() => setIsSubmitted(true)}
-				placeholder="Rechercher…"
-				inputProps={{ 'aria-label': 'search' }}
-			/>
-		</Search>
-        </div>
+		<div className="py-8">
+			<Search>
+				<SearchIconWrapper>
+					<SearchIcon />
+				</SearchIconWrapper>
+				<StyledInputBase
+					value={query}
+					onChange={handleChange}
+					onSubmit={() => setIsSubmitted(true)}
+					placeholder="Rechercher…"
+					inputProps={{ 'aria-label': 'search' }}
+				/>
+			</Search>
+		</div>
 	);
 };

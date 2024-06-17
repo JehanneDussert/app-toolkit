@@ -10,9 +10,20 @@ export const Home = () => {
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const itemsPerPage = 5;
 	const { error, loadingData, fetchData } = useFetch('/');
-	const data = ["test 1", "test 2", "test 3", "test 4", "test 5", "test 6", "test 7"];
+	const data = [
+		'test 1',
+		'test 2',
+		'test 3',
+		'test 4',
+		'test 5',
+		'test 6',
+		'test 7',
+	];
 
-	const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) => {
+	const handlePageChange = (
+		event: React.ChangeEvent<unknown>,
+		page: number
+	) => {
 		setCurrentPage(page);
 	};
 
@@ -33,13 +44,13 @@ export const Home = () => {
 				<Searchbar
 					query={query}
 					setIsSubmitted={setIsSubmitted}
-					handleChange={(e: React.ChangeEvent<HTMLInputElement>) => 
+					handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 						setQuery(e.target.value)
 					}
 				/>
 				{/* <ParamsMenu /> */}
 				<Cards currentPageItems={currentPageItems} />
-				<Pagination 
+				<Pagination
 					count={Math.ceil(data.length / itemsPerPage)}
 					page={currentPage}
 					onChange={handlePageChange}
@@ -49,4 +60,3 @@ export const Home = () => {
 		</div>
 	);
 };
-

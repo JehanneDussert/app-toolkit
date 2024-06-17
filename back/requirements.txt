@@ -5,3 +5,4 @@ beautifulsoup4
 sqlalchemy
 databases
 pydantic
+pytest
