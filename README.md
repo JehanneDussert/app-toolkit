@@ -1,5 +1,7 @@
 # app-toolkit
 
+Basic frontend and backend for faster launch of new repositories.
+
 ## Front-end
 
 ### General
