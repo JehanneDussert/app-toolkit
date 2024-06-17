@@ -1,12 +1,13 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+from models import User
+from schemas import UserCreate
 
-def get_items(db: Session, skip: int = 0, limit: int = 10):
-    return db.query(models.Item).offset(skip).limit(limit).all()
+def get_users(db: Session):
+    return db.query(User).all()
 
-def create_item(db: Session, item: schemas.ItemCreate):
-    db_item = models.Item(title=item.title, description=item.description)
-    db.add(db_item)
+def create_user(db: Session, user: UserCreate):
+    db_user = User(title=user.title, type=user.type)
+    db.add(db_user)
     db.commit()
-    db.refresh(db_item)
-    return db_item
+    db.refresh(db_user)
+    return db_user
