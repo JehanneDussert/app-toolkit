@@ -1,14 +1,14 @@
 from pydantic import BaseModel
-from datetime import datetime
 
-class User(BaseModel):
-    id: int
+class UserBase(BaseModel):
     title: str
     type: str
+
+class UserCreate(UserBase):
+    pass
+
+class User(UserBase):
+    id: int
 
     class Config:
-        orm_mode = True
-
-class UserCreate(BaseModel):
-    title: str
-    type: str
+        orm_mode: True

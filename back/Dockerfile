@@ -1,8 +1,8 @@
 FROM python:3.9-slim
 
 COPY requirements.txt .
-COPY ./app/main.py .
-COPY ./app/database.py .
+COPY ./app .
+COPY ./migrations ./migrations
 
 RUN pip install --no-cache-dir -r requirements.txt
 

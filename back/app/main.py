@@ -1,20 +1,21 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import engine, Base, get_db
-import crud, schemas
+from schemas import UserCreate, User
+from crud import get_users, create_new_user
 
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
-@app.get("/users/", response_model=list[schemas.User])
+@app.get("/users/", response_model=list[User])
 def read_users(db: Session = Depends(get_db)):
-    users = crud.get_users(db)
+    users = get_users(db)
     return users
 
-@app.post("/users/", response_model=schemas.User)
-def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    return crud.create_user(db=db, user=user)
+@app.post("/users/", response_model=User)
+def create_user(user: UserCreate, db: Session = Depends(get_db)):
+    return create_new_user(db=db, user=user)
 
 if __name__ == "__main__":
     import uvicorn
