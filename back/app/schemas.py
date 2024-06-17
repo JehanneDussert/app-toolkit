@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+# Data structures definitions w/ pydantic
 class UserBase(BaseModel):
     title: str
     type: str

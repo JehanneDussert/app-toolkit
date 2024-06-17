@@ -2,6 +2,9 @@ from sqlalchemy import Column, Integer, String, DateTime
 from database import Base
 import datetime
 
+# Model definitions as sqlalchemy classes
+# Each model = one DB table
+
 class User(Base):
     __tablename__ = "user"
 
