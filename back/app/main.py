@@ -6,6 +6,7 @@ from app.crud import get_users, create_new_user, rm_new_user, update_new_user
 
 app = FastAPI()
 
+# SQLAlchemy instruction that creates all DB metadata tables
 Base.metadata.create_all(bind=engine)
 
 # GLOBAL ROUTES

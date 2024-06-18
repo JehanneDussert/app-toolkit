@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime
 from app.database import Base
 import datetime
 
-# Model definitions as sqlalchemy classes
+# Model definitions as SQLAlchemy classes
 # Each model = one DB table
 
 class User(Base):
