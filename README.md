@@ -13,20 +13,34 @@ Basic frontend and backend for faster launch of new repositories.
 - [x] [Mui Charts](https://mui.com/x/react-charts/getting-started/)
 - [x] [Tailwind UI](https://tailwindui.com/)
 
+Using vite template:
+```
+npm create vite@latest my-app -- --template react-ts
+```
+
 ### Usage
 
-Dev mode:
+💅 Format your files:
+```
+npm run format
+```
+
+💻 Dev mode:
 ```
 npm run dev
+```
+
+In an other terminal run tailwind for CSS:
+```
 npx tailwindcss -i ./src/style/input.css -o ./src/style/output.css --watch
 ```
 
-Build mode:
+🏗️ Build mode:
 ```
 npm run build
 ```
 
-Dockerize:
+🐋 Dockerize:
 ```
 docker build -t frontend:latest .
 docker run -p 3000:3000 frontend
