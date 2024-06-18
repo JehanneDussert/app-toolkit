@@ -2,7 +2,7 @@
 
 Basic frontend and backend for faster launch of new repositories.
 
-## Front-end
+## Frontend
 
 ### General
 
@@ -32,7 +32,7 @@ docker build -t frontend:latest .
 docker run -p 3000:3000 frontend
 ```
 
-## Backend-end
+## Backend
 
 ### General
 
